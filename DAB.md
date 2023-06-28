@@ -302,7 +302,7 @@ Your device may support more states, choose the one that best represents the des
 ### Operation: Listing all the Applications
 *Operation model: Request / Response*
 
-This operation lists the applications installed on the device.
+This operation lists the applications installed on the device. This list can be limited to applications that are known to leverage DAB.
 
 #### Request Topic
 
@@ -2016,4 +2016,3 @@ type SetLanguageResponse = DabResponse
    "status": 200
 }
 ```
-
