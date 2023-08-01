@@ -528,7 +528,7 @@ When using the exit operation with the background flag, the intention is to put 
 ```typescript
 interface ExitApplicationRequest extends DabRequest {
    appId: string;
-   force?: boolean;
+   background?: boolean;
 }
 ```
 
