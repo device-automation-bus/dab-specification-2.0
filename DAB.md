@@ -7,16 +7,16 @@ Version: 2.0  |  Last Updated: 2023-06-01
 2. [About the Specification](#2-about-the-specification)
 3. [Requirements](#3-requirements)
 4. [Protocol Basics](#4-protocol-basics)
-5. [DAB Operations](#5-dab-operations)
-	5.1. [Supported operations](#51-supported-operations)
-	5.2. [Applications](#52-applications)
-	5.3. [System](#53-system)
-	5.4. [Input](#54-input)
-	5.5. [Output](#55-output)
-	5.6. [Device and Application Telemetry](#56-device-and-application-telemetry)
-	5.7. [Health Check](#57-health-check)
-	5.8. [General Notifications](#58-general-notifications)
-	5.9. [Voice](#59-voice)
+5. [DAB Operations](#5-dab-operations)   
+	5.1. [Supported operations](#51-supported-operations)   
+	5.2. [Applications](#52-applications)  
+	5.3. [System](#53-system)   
+	5.4. [Input](#54-input)   
+	5.5. [Output](#55-output)   
+	5.6. [Device and Application Telemetry](#56-device-and-application-telemetry)   
+	5.7. [Health Check](#57-health-check)   
+	5.8. [General Notifications](#58-general-notifications)   
+	5.9. [Voice](#59-voice)   
 6. [Versioning of the protocol](#6-versioning-of-the-protocol)
 7. [Appendix](#7-appendix)
 8. [Deprecated APIs](#8-deprecated-apis)
@@ -24,7 +24,7 @@ Version: 2.0  |  Last Updated: 2023-06-01
 # 1. Introduction
 This document describes Device Automation Bus (DAB), a simple protocol for intuitively interacting with living room devices. Living room devices are consumer electronics in the living room that are connected to the Internet such as televisions and games consoles. DAB is a protocol that allows device manufacturers and application developers to programmatically communicate with living room devices to start and stop applications, send key presses to the device, restart the device, capture device metrics among other operations. Using DAB, device manufacturers and application developers can automate manual tasks such as application compatibility checks, cross application performance testing and monitoring device memory usage. Automating manual tasks provides reliable results and saves time and money.
 
-The diagram below provides a high level view of how DAB works:
+The diagram below provides a high level view of how DAB works:  
 ![DAB diagram](https://i.ibb.co/tLn05Gj/DAB-Diagram.png)
 
 # 2. About the Specification
@@ -96,7 +96,7 @@ One should implement the Device ID as:
 
 ### Device Setup
 When a device client first connected to the MQTT broker, it should do the following setup procedure:
-1. Subscribe to all topics listed in this spec, like `dab/<device-id>/device/info` topic.
+1. Subscribe to all topics listed in this spec, like `dab/<device-id>/device/info` topic. 
 2. Subscribe to `dab/discovery` topic.
 
 ### Device Discovery
@@ -371,8 +371,8 @@ applications | a list of applications
 
 This operation launches an instance of the application into the FOREGROUND state. There can only be one instance of an application running in the system and the instance is referenced by the application identifier.
 
-* If the application is in the STOPPED state, this operation will launch a new instance into the FOREGROUND state.
-* If the application is in the BACKGROUND state, this operation will bring the instance of the application into the FOREGROUND state.
+* If the application is in the STOPPED state, this operation will launch a new instance into the FOREGROUND state. 
+* If the application is in the BACKGROUND state, this operation will bring the instance of the application into the FOREGROUND state. 
 * If the application is in the FOREGROUND state, this operation will not change the state of the application.
 
 
@@ -512,7 +512,7 @@ state | state of the application at the time of the request, one of `STOPPED`, `
 ### Operation: Exiting the application
 *Operation model: Request / Response*
 
-This operation exits the application.
+This operation exits the application. 
 * If the optional *background* parameter is set, this operation attempts to move the application to the BACKGROUND state.
 * If the *background* parameter is omitted or is set to false, this operation attempts to completely stop the application and move it to a STOPPED state.
 
@@ -558,7 +558,7 @@ interface ExitApplicationResponse extends DabResponse {
 #### Response Parameters
 
 Parameter |  Description
---- | ---
+--- | --- 
 state | state of the application after the exit operation
 
 
@@ -1573,7 +1573,7 @@ message | Message
 ```
 ## 5.9. Voice
 
-This section applies to all devices where users may interact with the device using a microphone.
+This section applies to all devices where users may interact with the device using a microphone. 
 
 ### Voice Systems
 
@@ -1699,11 +1699,11 @@ Error:
 ### Operation: Sending audio to voice system
 *Operation model: Request / Response*
 
-This operation provides an HTTP URL identifying an audio file of MIME type `audio/wav` to be used for a voice request. The platform must issue a GET request to the URL and appropriately route the retrieved audio through the platform as if it came from the device's microphone.
+This operation provides an HTTP URL identifying an audio file of MIME type `audio/wav` to be used for a voice request. The platform must issue a GET request to the URL and appropriately route the retrieved audio through the platform as if it came from the device's microphone. 
 
 Audio must be a WAV format file containing 16-bit linear PCM, 16-kHz sample rate, single channel, little-endian byte order format. The sample rate must be contained in the header.
 
-File size must not exceed 4MB.
+File size must not exceed 4MB. 
 
 #### Request Topic
 
