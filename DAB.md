@@ -1198,7 +1198,7 @@ Retrieves outputs from the device (such as images, audio, etc.). Images are the 
 ### Operation: Capture image
 *Operation model: Request / Response*
 
-This operation captures the current output of the device and returns an image that is base64 encoded. The image data must be in PNG format.
+This operation captures the current output of the device and returns an image that is base64 encoded. The image must include both video and graphics plane content. The image data must be in PNG format.
 
 #### Request Topic
 
