@@ -212,7 +212,7 @@ Unsolicited Messages are a feature of MQTT. An unsolicited message is a message 
 |-|-|-|-|
 |Language code|`rfc_5646_language_tag`|All language tags use the IETF language tags defined in [RFC 5646](https://tools.ietf.org/html/rfc5646). All language tags are string fields.|"en-US"|
 |UNIX Time stamp|`unix_timestamp_ms`|UNIX Epoch time in milliseconds. The data type is a 64 bit unsigned integer.|1568815387403|
-|Application Identifier|`appId`|The application identifier consists of a sequence of characters. The lower case letters "a"--"z", numeric digits, and hyphen ("-") are allowed. For resiliency, uppercase letters are equivalent to lowercase (e.g., "netflix" is the same as "Netflix"). The minimum number of characters is 1 and the maximum is 64.|"AmazonInstantVideo"|
+|Application Identifier|`appId`|The application identifier consists of a sequence of characters. For resiliency, uppercase letters are equivalent to lowercase (e.g., "netflix" is the same as "Netflix"). The minimum number of characters is 1 and the maximum is 64.|"AmazonInstantVideo"|
 |Uniform Resource Locator|`url`|MQTT has a max play load size of 256mb for binary data. HTTP is used for pushing and pulling resources from devices to support larger media files. URLs are defined in [RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986).|http://192.168.0.1/file|
 
 #### Registering Application Identifier to DIAL Registry
@@ -369,7 +369,7 @@ applications | a list of applications
 ### Operation: Launching an Application
 *Operation model: Request / Response*
 
-This operation launches an instance of the application into the FOREGROUND state. There can only be one instance of an application running in the system and the instance is referenced by the application identifier.
+This operation launches an instance of the application into the FOREGROUND state. There can only be one instance of an application running in the system and the instance is referenced by the application identifier. The response should only be sent after the application state has changed on the platform.
 
 * If the application is in the STOPPED state, this operation will launch a new instance into the FOREGROUND state. 
 * If the application is in the BACKGROUND state, this operation will bring the instance of the application into the FOREGROUND state. 
@@ -413,7 +413,7 @@ type LaunchApplicationResponse = DabResponse
 ### Operation: Launching an application to the specified content
 *Operation model: Request / Response*
 
-This operation launches the application into FOREGROUND state with the specified content (also known as deep linking). There can only be one instance of an application running in the system and the instance is referenced by the application identifier.
+This operation launches the application into FOREGROUND state with the specified content (also known as deep linking). There can only be one instance of an application running in the system and the instance is referenced by the application identifier. The response should only be sent after the application state has changed on the platform.
 
 * If the application is in the STOPPED state, this operation will launch a new instance into the FOREGROUND state with the specified content
 * If the application is in the BACKGROUND state, this operation will bring the instance of the application into the FOREGROUND and pass the specified content to the instance
@@ -518,6 +518,7 @@ This operation exits the application.
 
 When using the exit operation without the background flag, the intention is to stop/kill the corresponding application process.
 When using the exit operation with the background flag, the intention is to put the application in a background state, similarly to when the user presses  the `home` key.
+The response should only be sent after the application state has changed on the platform.
 
 #### Request Topic
 
@@ -1425,8 +1426,8 @@ List of supported metrics
 
 | Metric  | Unit | Description | Example
 |---|---|---|---|
-| cpu | percentage expressed as a number, for single core systems between 0 and 100, on multi-core systems, percentages can be higher than 100% | CPU usage | 180% (for a 3 core system, each core could be at 60%)
-| memory | kilobytes | Memory usage | 43008
+| cpu | percentage expressed as a number | Overall CPU usage scaled to the range of 0% to 100%| 26
+| memory | kilobytes | *optional* Memory usage | 43008
 
 If an application is not running and the app specific telemetry collection is ongoing or gets started, the device should return 0 as the value for both cpu and memory metric.
 
@@ -1516,10 +1517,9 @@ message | optional message to indicate any problems with the DAB protocol
 }
 ```
 
-## 5.8 General Notifications
+## 5.8 *Optional* General Notifications
 
-The device may publish any errors, warnings, general information to the general notification topic.
-It is recommended that the connected clients subscribe to this topic to receive the notifications from the device.
+The device may publish any errors, warnings, general information to the general notification topic. These messages provide developers an internal observability into the state of DAB on the device and help debug potential issues on the platform. While not required, it is highly suggested to at-least provide retained MQTT messages informing clients about the state of DAB as shown in the examples below.
 
 ### Notification Topic
 
@@ -1554,13 +1554,13 @@ timestamp | UNIX Epoch time in milliseconds
 level | Notification level
 message | Message
 
-#### Example Notifications
+#### Suggested Notifications
 
 ```json
 {
    "timestamp": 1610704569349,
    "level": "info",
-   "message": "DAB started successfully"
+   "message": "DAB started successfully and is online."
 }
 ```
 
@@ -1568,9 +1568,10 @@ message | Message
 {
    "timestamp": 1610704569349,
    "level": "error",
-   "message": "Application 'media-player-1' terminated abnormally"
+   "message": "DAB faced an exception. Terminating abnormally."
 }
 ```
+
 ## 5.9. Voice
 
 This section applies to all devices where users may interact with the device using a microphone. 
