@@ -1,6 +1,6 @@
 
 # Device Automation Bus (DAB)
-Version: 2.0  |  Last Updated: 2023-06-01
+Version: 2.0  |  Last Updated: 2023-10-11
 
 # Table of Contents:
 1. [Introduction](#1-introduction)
