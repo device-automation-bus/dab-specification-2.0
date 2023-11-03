@@ -400,7 +400,7 @@ parameters | `[]` | *Optional* Application specific parameters. Application para
 
 ```json
 {
-   "appId": "PrimeVideo"
+   "appId": "Netflix"
 }
 ```
 
@@ -484,7 +484,7 @@ appId | - | Application Identifier
 
 ```json
 {
-   "appId": "PrimeVideo"
+   "appId": "YouTube"
 }
 ```
 
