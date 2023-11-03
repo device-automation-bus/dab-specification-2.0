@@ -212,12 +212,12 @@ Unsolicited Messages are a feature of MQTT. An unsolicited message is a message 
 |-|-|-|-|
 |Language code|`rfc_5646_language_tag`|All language tags use the IETF language tags defined in [RFC 5646](https://tools.ietf.org/html/rfc5646). All language tags are string fields.|"en-US"|
 |UNIX Time stamp|`unix_timestamp_ms`|UNIX Epoch time in milliseconds. The data type is a 64 bit unsigned integer.|1568815387403|
-|Application Identifier|`appId`|The application identifier consists of a sequence of characters. For resiliency, uppercase letters are equivalent to lowercase (e.g., "netflix" is the same as "Netflix"). The minimum number of characters is 1 and the maximum is 64.|"AmazonInstantVideo"|
+|Application Identifier|`appId`|The application identifier consists of characters. For resiliency, uppercase letters are equivalent to lowercase (e.g., "netflix" is the same as "Netflix"). The minimum number of characters is 1 and the maximum is 64.|"PrimeVideo"|
 |Uniform Resource Locator|`url`|MQTT has a max play load size of 256mb for binary data. HTTP is used for pushing and pulling resources from devices to support larger media files. URLs are defined in [RFC 3986](https://datatracker.ietf.org/doc/html/rfc3986).|http://192.168.0.1/file|
 
-#### Registering Application Identifier to DIAL Registry
+### Standardized Application and Voice System Identifiers in Appendix
 
-To ensure that the application identifier for each application is well defined and to avoid naming conflicts, the application identifier should be obtained from the [DIAL Application Registry](http://www.dial-multiscreen.org/dial-registry). If your application is not in the registry you should register it on the [DIAL](http://www.dial-multiscreen.org) website.
+In order to refer to applications and voice systems in a standardized manner, key application identifiers and voice system names are provided within [Secton 7 -- Appendix](#7-appendix). DAB implementations must use these appId and voice system names, and not any internal codenames. This is necessary for test automation to use uniform names across all DAB-capable platforms.
 
 # 5. DAB Operations
 
@@ -326,7 +326,7 @@ interface Application {
 
 Parameter | Description
 --- | ---
-appId | Application Identifier
+appId | Application Identifier, as [defined in the DAB Registry](#7-appendix)
 friendlyName | *optional* application friendly name
 version | *optional* application version
 
@@ -353,8 +353,8 @@ applications | a list of applications
          "version": "2.0.0"
       },
       {
-         "appId": "AmazonInstantVideo",
-         "friendlyName": "Prime Video",
+         "appId": "PrimeVideo",
+         "friendlyName": "Amazon Prime Video",
          "version": "2.0.0"
       },
       {
@@ -400,7 +400,7 @@ parameters | `[]` | *Optional* Application specific parameters. Application para
 
 ```json
 {
-   "appId": "AmazonInstantVideo"
+   "appId": "Netflix"
 }
 ```
 
@@ -484,7 +484,7 @@ appId | - | Application Identifier
 
 ```json
 {
-   "appId": "AmazonInstantVideo"
+   "appId": "YouTube"
 }
 ```
 
@@ -544,7 +544,7 @@ background | false | decides whether to background or completely stop the applic
 
 ```json
 {
-   "appId": "AmazonInstantVideo",
+   "appId": "PrimeVideo",
    "background": false
 }
 ```
@@ -1618,7 +1618,7 @@ interface ListSupportedVoiceSystemsResponse extends DabResponse {
 
 Parameter | Description
 --- | ---
-voiceSystems | a list of available voice systems supported by the device
+voiceSystems | a list of available voice systems supported by the device, as [defined in the DAB Voice System Registry](#voice-system-name-registry)
 
 #### Sample Response
 ```json
@@ -1626,7 +1626,7 @@ voiceSystems | a list of available voice systems supported by the device
    "status": 200,
    "voiceSystems": [
       {
-         "name": "Alexa",
+         "name": "AmazonAlexa",
          "enabled": true
       },
       {
@@ -1724,14 +1724,14 @@ interface SendVoiceAsAudioRequest extends DabRequest {
 Parameter | Default|  Description
 --- | --- | ---
 fileLocation | - | HTTP URL identifying the location of the audio resource for the platform to download.
-voiceSystem | - | _Optional_ Specific voice system to direct the audio to. Voice system must be enabled first.
+voiceSystem | - | _Optional_ Specific voice system to direct the audio to. Voice system must be enabled first. As [defined in the DAB Voice System Registry](#voice-system-name-registry)
 
 #### Sample Request
 
 ```json
 {
    "fileLocation": "http://192.168.1.8:80/utterance_1.wav",
-   "voiceSystem": "Alexa"
+   "voiceSystem": "AmazonAlexa"
 }
 ```
 
@@ -1906,12 +1906,30 @@ versions | a list of versions of the protocol implemented on the device
 
 # 7. Appendix
 
-## Appendix A: Revision History
+## Application ID Registry
+| Application        |  DAB appId  |
+| :---------------:  |  :-------:  |
+| Netflix            |   Netflix   |
+| YouTube            |   YouTube   |
+| Amazon Prime Video |  PrimeVideo |
 
-Version   | Date       | Notes
----       | ---        | ---
-2.0       | 2022-03-24 | Added Discovery & Device Settings Control. Clarified other aspects of the protocol.
-1.0       | 2021-03-31 | First Release of the DAB Specification
+## Voice System Name Registry
+
+| Voice System       |  DAB Voice System Name  |
+| :---------------:  |  :-------:              |
+| Google Assistant   |   GoogleAssistant       |
+| Amazon Alexa       |   AmazonAlexa           |
+
+### Process for Contributing to Registry
+
+ If you are an application or voice system owner and your identifier is not found in the registry, you can register it by following these steps:
+
+1. Fork this specification repository
+2. Add and commit your application or voice system identifier in your repo
+3. Create a pull request to merge your additions to this DAB specification
+4. A DAB consortium member will review your pull request, approve, and merge promptly
+
+You can see more instructions on how to [create a pull request from a forked repository on GitHub using these instructions.](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)
 
 
 # 8. Deprecated APIs
