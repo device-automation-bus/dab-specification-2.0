@@ -1920,7 +1920,7 @@ versions | a list of versions of the protocol implemented on the device
 | Google Assistant   |   GoogleAssistant       |
 | Amazon Alexa       |   AmazonAlexa           |
 | LG ThinQ           |   LGThinQ               |
-| Yandex Alice       |   yandexAlice           |
+| Yandex Alice       |   YandexAlice           |
 
 ### Process for Contributing to Registry
 
