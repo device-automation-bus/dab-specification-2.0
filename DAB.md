@@ -1,6 +1,6 @@
 
 # Device Automation Bus (DAB)
-Version: 2.0  |  Last Updated: 2023-11-03
+Version: 2.0  |  Last Updated: 2023-11-22
 
 # Table of Contents:
 1. [Introduction](#1-introduction)
@@ -394,15 +394,23 @@ interface LaunchApplicationRequest extends DabRequest {
 Parameter | Default |  Description
 --- | --- | ---
 appId | - | Application Identifier
-parameters | `[]` | *Optional* Application specific parameters. Application parameters are not part of the DAB specification and the application behavior may differ on different devices.
+parameters | `[]` | URL encoded list of parameters to be passed to the application being launched (usually directly to the app executable). The technique to pass parameters may be app specific. Please work with [app partners in DAB Registry](#7-appendix) for how the parameters are expected to be passed.
 
 #### Sample Request
 
 ```json
 {
-   "appId": "Netflix"
+   "appId": "Netflix",
+   "parameters": [
+    "-KEY",
+    "https%3A%2F%2Fwww.example-value.com%2F",
+    "-STANDALONE_PARAM",
+    "%22param-with-quotes%22",
+   ]
 }
 ```
+
+In the above sample, since `parameters` is defined, DAB implementations must URL decode each parameter and pass them in order. As an example, for Netflix it would look like `./netflix -KEY https://www.example-value.com -STANDALONE_PARAM "param-with-quotes"`. Note how the order is preserved and parameters containing quotes and other miscellaneous characters are passed without issue due to URL encoding / decoding.
 
 #### Response Format
 
@@ -440,7 +448,7 @@ Parameter | Default | Description
 --- | --- | ---
 appId | - | Application Identifier
 contentId | - | Application specific content identifier
-parameters | `[]` | *Optional* Application specific parameters to pass (not part of the specification).
+parameters | `[]` | URL encoded list of parameters to be passed to the application being launched (usually directly to the app executable). The technique to pass parameters may be app specific. Please work with [app partners in DAB Registry](#7-appendix) for how the parameters are expected to be passed.
 
 #### Sample Request
 
