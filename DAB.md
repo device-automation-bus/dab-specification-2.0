@@ -835,7 +835,7 @@ pictureMode           | Picture modes supported by the device
 audioOutputMode       | Audio Output modes supported by the device
 audioOutputSource     | Audio output source selection options
 videoInputSource      | Video input source options on TV
-audioVolume           | Audio output volume control
+audioVolume           | Audio output volume control range. If it cannot be controlled by device, set both min and max equal to the current volume level.
 mute                  | Volume mute operation support by the device
 textToSpeech          | Text to Speech support on the device
 
@@ -863,7 +863,10 @@ textToSpeech          | Text to Speech support on the device
    "audioOutputMode": ["Stereo", "Auto"],
    "audioOutputSource": ["HDMI", "Optical"],
    "videoInputSource": [],
-   "audioVolume": false,
+   "audioVolume": {
+      "min": 0,
+      "max": 100
+   },
    "mute": false,
    "textToSpeech": true
 }
