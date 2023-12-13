@@ -67,22 +67,18 @@ To send requests and receive responses from DAB:
 5. When a message sent by device client is received on the user client at `dab/userClient-1/responses` with matching `correlationData`, the message payload will be the health-check response and the operation is complete.
 
 ##### Sample MQTT Request Message:
-```json
-{
-   "topic": "dab/<device-id>/health-check/get",
-   "correlationData": "abc",
-   "responseTopic": "dab/userClient-1/responses",
-   "payload": "DabRequest{...}"
-}
+```shell
+   topic: "dab/<device-id>/health-check/get",
+   correlationData: "abc",
+   responseTopic: "dab/userClient-1/responses",
+   payload: DabRequest{...}
 ```
 
 ##### Sample MQTT Response Message:
-```json
-{
-   "topic": "dab/userClient-1/responses",
-   "correlationData": "abc",
-   "payload": "DabResponse{...}"
-}
+```shell
+   topic: "dab/userClient-1/responses",
+   correlationData: "abc",
+   payload: DabResponse{...}
 ```
 
 ### Device ID Implementation Guidelines
@@ -103,13 +99,11 @@ When a device client first connected to the MQTT broker, it should do the follow
 These are the steps using which a user client can discover all the DAB device clients present in the current setup:
 
 1. When a User client connects to the MQTT broker for the first time, there might be device clients already connected to the broker. User Client should publish a request to the discovery topic `dab/discovery` similar to the following:
-```json
-{
-   "topic": "dab/discovery",
-   "correlationData": "abc",
-   "responseTopic": "dab/userClient-1/responses",
-   "payload": "DabRequest{...}"
-}
+```shell
+   topic: "dab/discovery",
+   correlationData: "abc",
+   responseTopic: "dab/userClient-1/responses",
+   payload: DabRequest{...}
 ```
 2. All connected DAB devices will send a response back to the `responseTopic` as set by the user client. The user client can then extract the device-id from these responses.
 
