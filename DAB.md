@@ -1912,11 +1912,12 @@ versions | a list of versions of the protocol implemented on the device
 # 7. Appendix
 
 ## Application ID Registry
-| Application        |  DAB appId  |
-| :---------------:  |  :-------:  |
-| Netflix            |   Netflix   |
-| YouTube            |   YouTube   |
-| Amazon Prime Video |  PrimeVideo |
+| Application        | DAB appId         |
+| :----------------: | :---------------: |
+| Netflix            | Netflix           |
+| YouTube            | YouTube           |
+| Amazon Prime Video | PrimeVideo        |
+| BBC iPlayer        | uk.co.bbc.iplayer |
 
 ## Voice System Name Registry
 
