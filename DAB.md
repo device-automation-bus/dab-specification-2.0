@@ -1927,6 +1927,7 @@ versions | a list of versions of the protocol implemented on the device
 | Amazon Alexa       |   AmazonAlexa           |
 | LG ThinQ           |   LGThinQ               |
 | Yandex Alice       |   YandexAlice           |
+| TiVo Conversation  |   TiVoConversation      |
 
 ### Process for Contributing to Registry
 
