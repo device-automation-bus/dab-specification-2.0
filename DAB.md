@@ -1,6 +1,6 @@
 
 # Device Automation Bus (DAB)
-Version: 2.0  |  Last Updated: 2023-11-22
+Version: 2.0  |  Last Updated: 2024-03-12
 
 # Table of Contents:
 1. [Introduction](#1-introduction)
@@ -1238,7 +1238,7 @@ outputImage | base64 encoded PNG image in a [data URL](https://www.rfc-editor.or
 }
 ```
 
-## 5.6. Device and Application Telemetry
+## 5.6. *Optional* Device and Application Telemetry
 
 Device and application telemetry allows the connected clients to gather metrics about the device and the applications running on the device.
 To start or stop the telemetry, either for the device or for the specific application, a request must be made to the correct request topic.
@@ -1431,7 +1431,7 @@ List of supported metrics
 
 | Metric  | Unit | Description | Example
 |---|---|---|---|
-| cpu | percentage expressed as a number | Overall CPU usage scaled to the range of 0% to 100%| 26
+| cpu | percentage expressed as a number | *optional* Overall CPU usage scaled to the range of 0% to 100%| 26
 | memory | kilobytes | *optional* Memory usage | 43008
 
 If an application is not running and the app specific telemetry collection is ongoing or gets started, the device should return 0 as the value for both cpu and memory metric.
