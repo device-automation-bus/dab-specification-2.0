@@ -1,6 +1,6 @@
 
 # Device Automation Bus (DAB)
-Version: 2.0  |  Last Updated: 2024-03-12
+Version: 2.0  |  Last Updated: 2024-04-23
 
 # Table of Contents:
 1. [Introduction](#1-introduction)
@@ -1204,7 +1204,7 @@ Retrieves outputs from the device (such as images, audio, etc.). Images are the 
 ### Operation: Capture image
 *Operation model: Request / Response*
 
-This operation captures the current output of the device and returns an image that is base64 encoded. The image must include both video and graphics plane content. The image data must be in PNG format.
+This operation captures the current output of the device and returns an image that is base64 encoded. The image must include both graphics plane content and clear (non-DRM) stream video. DRM content and any video that passes through the device's secure video pipeline or trusted execution environment shall not be in the captured image. The image data must be in PNG format.
 
 #### Request Topic
 
