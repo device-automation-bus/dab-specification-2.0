@@ -833,6 +833,14 @@ audioVolume           | Audio output volume control range. If it cannot be contr
 mute                  | Volume mute operation support by the device
 textToSpeech          | Text to Speech support on the device
 
+### Response Types
+
+Type                  |  Sample Value | Description
+--------------------- | ------------- | -----------
+list                  |   ["a", "b"]  |  list of all the possible values. Empty list means it's not supported. 
+boolean               |      true     |  This is a on/off only setting. False means it's not supported.
+number                |       3       |  Usually goes by range with min max pair. Having min>max means it's not supported 
+
 ### Sample Response
 ```json
 {
