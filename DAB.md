@@ -1918,6 +1918,7 @@ versions | a list of versions of the protocol implemented on the device
 | YouTube            | YouTube           |
 | Amazon Prime Video | PrimeVideo        |
 | BBC iPlayer        | uk.co.bbc.iplayer |
+| YouTube TV         | YouTubeTV         |
 
 ## Voice System Name Registry
 
