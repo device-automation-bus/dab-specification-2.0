@@ -890,7 +890,7 @@ type GetCurrentSystemSettingsRequest = DabRequest
 
 #### Response Format
 ```typescript
-interface GetCurrentSystemSettingsResponse extends DabResponse {
+interface SystemSettings {
    language: rfc_5646_language_tag;
    outputResolution: OutputResolution;
    memc: boolean;
@@ -905,6 +905,9 @@ interface GetCurrentSystemSettingsResponse extends DabResponse {
    audioVolume: int;
    mute: boolean;
    textToSpeech: boolean;
+}
+
+interface GetCurrentSystemSettingsResponse extends DabResponse, SystemSettings {
 }
 ```
 
