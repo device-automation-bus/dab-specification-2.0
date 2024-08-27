@@ -1854,7 +1854,7 @@ Parameter | Description
 --- | ---
 ip | IP Address of the device.
 deviceId | The unique identifier of this device. Should be same as <device-id> in other topics.
-
+f
 #### Sample Responses
 
 ```json
@@ -1969,7 +1969,6 @@ versions | a list of versions of the protocol implemented on the device
 | Amazon Prime Video | PrimeVideo        |f
 | BBC iPlayer        | uk.co.bbc.iplayer |
 | YouTube TV         | YouTubeTV         |
-| Zeasn              | Zeasn ASR DAB     |
 
 ## Voice System Name Registry
 
@@ -1980,7 +1979,7 @@ versions | a list of versions of the protocol implemented on the device
 | LG ThinQ           |   LGThinQ               |
 | Yandex Alice       |   YandexAlice           |
 | TiVo Conversation  |   TiVoConversation      |
-| Whale  AI Voice    |   AIVoice               |
+| Whale  AI Voice    |   Zeasn ASR             |
 
 ### Process for Contributing to Registry
 
