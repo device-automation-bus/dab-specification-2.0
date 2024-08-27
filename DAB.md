@@ -1854,7 +1854,6 @@ Parameter | Description
 --- | ---
 ip | IP Address of the device.
 deviceId | The unique identifier of this device. Should be same as <device-id> in other topics.
-f
 #### Sample Responses
 
 ```json
@@ -1864,6 +1863,7 @@ f
    "deviceId": "device3"
 }
 ```
+
 # 6. Versioning of the protocol
 *Operation model: Request / Response*
 
