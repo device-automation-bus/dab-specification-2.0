@@ -1865,6 +1865,47 @@ deviceId | The unique identifier of this device. Should be same as <device-id> i
 }
 ```
 
+### Oeperation:  Zeasn ASR Voice starts the voice assistant.
+
+
+This operation provides a broadcast communication mechanism. The service is started by sending a broadcast event: "com.zeasn.asr.action.DAB_SERVICES
+. Data processing is done by receiving the broadcast event: "com.zeasn.asr.action.DAB_SERVICES".
+
+
+#### Request Format
+```typescript
+Intent detFilter = new Intent("com.zeasn.asr.action.DAB_SERVICES");
+detFilter.putExtra("topic", "dab/<device-id>/voice/set");
+detFilter.putExtra("data", setdata);
+sendBroadcast(detFilter);
+```
+
+#### Request Parameters
+
+Parameter | Default|  Description
+--- | --- | ---
+topic | String | The string to be passed as output of a voice system
+data  | String | Specific voice system to direct the audio to.  Voice system must be enabled first.
+
+#### Response Format
+```
+String audiodata = "{\n" +
+"   \"fileLocation\": \"http://172.16.32.57:54175/17231212690348.wav\",\n" +
+"   \"voiceSystem\": \"GPT\"\n" +
+"}";
+
+String textdata =  "{\n" +
+"   \"requestText\": \"Open YouTube\",\n" +
+"   \"voiceSystem\": \"GPT\"\n" +
+"}";
+
+String setdata =  "{\n" +
+"   \"voiceSystem\": {\n" +
+"      \"name\": \"GoogleAssistant\",\n" +
+"      \"enabled\": true\n" +
+"   }" +
+"}";
+```
 # 6. Versioning of the protocol
 *Operation model: Request / Response*
 
@@ -1924,7 +1965,7 @@ versions | a list of versions of the protocol implemented on the device
 | :----------------: | :---------------: |
 | Netflix            | Netflix           |
 | YouTube            | YouTube           |
-| Amazon Prime Video | PrimeVideo        |
+| Amazon Prime Video | PrimeVideo        |f
 | BBC iPlayer        | uk.co.bbc.iplayer |
 | YouTube TV         | YouTubeTV         |
 | Zeasn              | Zeasn ASR DAB     |
