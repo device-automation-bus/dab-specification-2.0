@@ -1854,6 +1854,7 @@ Parameter | Description
 --- | ---
 ip | IP Address of the device.
 deviceId | The unique identifier of this device. Should be same as <device-id> in other topics.
+
 #### Sample Responses
 
 ```json
@@ -1923,7 +1924,7 @@ versions | a list of versions of the protocol implemented on the device
 | :----------------: | :---------------: |
 | Netflix            | Netflix           |
 | YouTube            | YouTube           |
-| Amazon Prime Video | PrimeVideo        |f
+| Amazon Prime Video | PrimeVideo        |
 | BBC iPlayer        | uk.co.bbc.iplayer |
 | YouTube TV         | YouTubeTV         |
 | Zeasn ASR          | com.zeasn.asrself |
