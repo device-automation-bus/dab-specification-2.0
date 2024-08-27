@@ -1969,6 +1969,7 @@ versions | a list of versions of the protocol implemented on the device
 | Amazon Prime Video | PrimeVideo        |f
 | BBC iPlayer        | uk.co.bbc.iplayer |
 | YouTube TV         | YouTubeTV         |
+| Zeasn ASR          | com.zeasn.asrself |
 
 ## Voice System Name Registry
 
