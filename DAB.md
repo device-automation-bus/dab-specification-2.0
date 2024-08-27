@@ -1864,49 +1864,6 @@ f
    "deviceId": "device3"
 }
 ```
-
-### Oeperation:  Zeasn ASR Voice starts the voice assistant.
-
-
-This operation provides a broadcast communication mechanism. The service is started by sending a broadcast event: "com.zeasn.asr.action.DAB_SERVICES
-. Data processing is done by receiving the broadcast event: "com.zeasn.asr.action.DAB_SERVICES".
-
-These operations all pass parameters through Intent.
-
-#### Request Format
-```typescript
-Intent detFilter = new Intent("com.zeasn.asr.action.DAB_SERVICES");
-detFilter.putExtra("topic", "dab/<device-id>/voice/set");
-detFilter.putExtra("data", setdata);
-sendBroadcast(detFilter);
-```
-
-#### Request Parameters
-
-Parameter | Default|  Description
---- | --- | ---
-topic | String | ref from [device-automation-bus](https://github.com/device-automation-bus/dab-specification-2.0)'s rqueset topic
-data  | String | ref from [device-automation-bus](https://github.com/device-automation-bus/dab-specification-2.0)'s Sample Request
-
-#### Response Format
-```
-String audiodata = "{\n" +
-"   \"fileLocation\": \"http://172.16.32.57:54175/17231212690348.wav\",\n" +
-"   \"voiceSystem\": \"GPT\"\n" +
-"}";
-
-String textdata =  "{\n" +
-"   \"requestText\": \"Open YouTube\",\n" +
-"   \"voiceSystem\": \"GPT\"\n" +
-"}";
-
-String setdata =  "{\n" +
-"   \"voiceSystem\": {\n" +
-"      \"name\": \"GoogleAssistant\",\n" +
-"      \"enabled\": true\n" +
-"   }" +
-"}";
-```
 # 6. Versioning of the protocol
 *Operation model: Request / Response*
 
