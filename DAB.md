@@ -1927,6 +1927,7 @@ versions | a list of versions of the protocol implemented on the device
 | Amazon Prime Video | PrimeVideo        |
 | BBC iPlayer        | uk.co.bbc.iplayer |
 | YouTube TV         | YouTubeTV         |
+| Zeasn              | Zeasn ASR DAB     |
 
 ## Voice System Name Registry
 
@@ -1937,7 +1938,7 @@ versions | a list of versions of the protocol implemented on the device
 | LG ThinQ           |   LGThinQ               |
 | Yandex Alice       |   YandexAlice           |
 | TiVo Conversation  |   TiVoConversation      |
-| Whale  AI Voice    |   AIVoice     |
+| Whale  AI Voice    |   AIVoice               |
 
 ### Process for Contributing to Registry
 
