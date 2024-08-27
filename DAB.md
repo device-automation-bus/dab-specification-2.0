@@ -1871,6 +1871,7 @@ deviceId | The unique identifier of this device. Should be same as <device-id> i
 This operation provides a broadcast communication mechanism. The service is started by sending a broadcast event: "com.zeasn.asr.action.DAB_SERVICES
 . Data processing is done by receiving the broadcast event: "com.zeasn.asr.action.DAB_SERVICES".
 
+These operations all pass parameters through Intent.
 
 #### Request Format
 ```typescript
@@ -1884,8 +1885,8 @@ sendBroadcast(detFilter);
 
 Parameter | Default|  Description
 --- | --- | ---
-topic | String | The string to be passed as output of a voice system
-data  | String | Specific voice system to direct the audio to.  Voice system must be enabled first.
+topic | String | ref from [device-automation-bus](https://github.com/device-automation-bus/dab-specification-2.0)'s rqueset topic
+data  | String | ref from [device-automation-bus](https://github.com/device-automation-bus/dab-specification-2.0)'s Sample Request
 
 #### Response Format
 ```
