@@ -8,15 +8,15 @@ Version: 2.0  |  Last Updated: 2024-04-23
 3. [Requirements](#3-requirements)
 4. [Protocol Basics](#4-protocol-basics)
 5. [DAB Operations](#5-dab-operations)   
-	5.1. [Supported operations](#51-supported-operations)   
-	5.2. [Applications](#52-applications)  
-	5.3. [System](#53-system)   
-	5.4. [Input](#54-input)   
-	5.5. [Output](#55-output)   
-	5.6. [Device and Application Telemetry](#56-device-and-application-telemetry)   
-	5.7. [Health Check](#57-health-check)   
-	5.8. [General Notifications](#58-general-notifications)   
-	5.9. [Voice](#59-voice)   
+   5.1. [Supported operations](#51-supported-operations)   
+   5.2. [Applications](#52-applications)  
+   5.3. [System](#53-system)   
+   5.4. [Input](#54-input)   
+   5.5. [Output](#55-output)   
+   5.6. [Device and Application Telemetry](#56-device-and-application-telemetry)   
+   5.7. [Health Check](#57-health-check)   
+   5.8. [General Notifications](#58-general-notifications)   
+   5.9. [Voice](#59-voice)   
 6. [Versioning of the protocol](#6-versioning-of-the-protocol)
 7. [Appendix](#7-appendix)
 8. [Deprecated APIs](#8-deprecated-apis)
@@ -86,8 +86,8 @@ The Device ID is an unique identifier that helps with DAB message routing across
 
 One should implement the Device ID as:
 1. The device under test defines what its Device ID should be.
-	2.1. It may or may not be baked into the device, but it should be globally unique.
-	2.2. It may be configurable, but using transient values, such as current IP address, is not recommended as this can make reconnecting after restart difficult.
+   2.1. It may or may not be baked into the device, but it should be globally unique.
+   2.2. It may be configurable, but using transient values, such as current IP address, is not recommended as this can make reconnecting after restart difficult.
 2. Device ID must be a string, and only include lower case alphanumeric characters and -_.
 
 ### Device Setup
@@ -1937,11 +1937,11 @@ versions | a list of versions of the protocol implemented on the device
 | LG ThinQ           |   LGThinQ               |
 | Yandex Alice       |   YandexAlice           |
 | TiVo Conversation  |   TiVoConversation      |
-| Whale AI Voice     |   Whale AI Voice        |
+| Whale  AI Voice    |   Whale  AI Voice       |
 
 ### Process for Contributing to Registry
 
-If you are an application or voice system owner and your identifier is not found in the registry, you can register it by following these steps:
+ If you are an application or voice system owner and your identifier is not found in the registry, you can register it by following these steps:
 
 1. Fork this specification repository
 2. Add and commit your application or voice system identifier in your repo
@@ -1972,7 +1972,7 @@ type GetAvailableLanguagesRequest = DabRequest
 #### Response Format
 ```typescript
 interface GetAvailableLanguagesResponse extends DabResponse {
-	languages: rfc_5646_language_tag [];
+   languages: rfc_5646_language_tag [];
 }
 ```
 
