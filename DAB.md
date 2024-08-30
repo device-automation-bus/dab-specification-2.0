@@ -1939,6 +1939,7 @@ versions | a list of versions of the protocol implemented on the device
 | TiVo Conversation  |   TiVoConversation      |
 | Whale  AI Voice    |   Whale  AI Voice       |
 
+
 ### Process for Contributing to Registry
 
  If you are an application or voice system owner and your identifier is not found in the registry, you can register it by following these steps:
