@@ -1937,7 +1937,7 @@ versions | a list of versions of the protocol implemented on the device
 | LG ThinQ           |   LGThinQ               |
 | Yandex Alice       |   YandexAlice           |
 | TiVo Conversation  |   TiVoConversation      |
-| Whale  AI Voice    |   Whale  AI Voice       |
+| WhaleAIVoice       |   WhaleAIVoice          |
 
 ### Process for Contributing to Registry
 
