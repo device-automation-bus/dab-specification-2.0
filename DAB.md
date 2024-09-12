@@ -687,7 +687,9 @@ Error:
 ### Operation: List system settings
 *Operation model: Request / Response*
 
-This operation is used to retrieve the possible values that can be assigned to each system setting.
+This operation is used to retrieve the possible values that can be assigned to each system setting. 
+
+Implementations must consider the current operating environment and surface only the setting values that the device believes is possible to set.
 
 #### Request Topic
 
