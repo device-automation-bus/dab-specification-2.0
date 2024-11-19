@@ -840,7 +840,7 @@ textToSpeech          | Text to Speech support on the device
 Type                  |  Sample Value | Description
 --------------------- | ------------- | -----------
 list                  |   ["a", "b"]  |  list of all the possible values. Empty list means it's not supported. 
-boolean               |      true     |  This is a on/off only setting. False means it's not supported.
+boolean               |      true     |  This is a on/off only setting. `true` means there exists at-least one circumstance where the feature is supported, `false` if not.
 number                |       3       |  Usually goes by range with min max pair. Having min>max means it's not supported.
 
 ### Sample Response
