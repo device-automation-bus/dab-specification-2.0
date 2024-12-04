@@ -172,7 +172,7 @@ error | optional explanation of the error
 Status code | Description
 --- | ---
 200 | The request was successful.
-400 | Bad request. The request was invalid or malformed. The explanation of the error must be included in the `error` field of the response.
+4XX | Bad request from the client side. The request was invalid or malformed. The explanation of the error must be included in the `error` field of the response.
 500 | Internal error. The explanation of the error must be included in the `error` field of the response.
 501 | Not implemented. The device must return this error when the requested functionality is not implemented.
 
