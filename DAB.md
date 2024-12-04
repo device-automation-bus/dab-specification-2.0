@@ -1,6 +1,6 @@
 
 # Device Automation Bus (DAB)
-Version: 2.0  |  Last Updated: 2024-04-23
+Version: 2.0  |  Last Updated: 12-04-2024
 
 # Table of Contents:
 1. [Introduction](#1-introduction)
@@ -2030,7 +2030,7 @@ Success:
 
 ### Operation: Setting the language
 
-This operation is used to update the language on the device. The language tag being set by the set topic must match a language tag in the list returned by the `dab/system/language/list` topic.
+This operation is used to update the language on the device. The language tag being set by the set topic must match a language tag in the list returned by the `dab/system/language/list` topic. It is understood that changing this setting may take a substantial amount of time — it is still expected that the operation only return after the setting change has completely taken affect. DAB clients will have a response timeout value of 3 minutes when requesting this operation.
 
 #### Request Topic
 
