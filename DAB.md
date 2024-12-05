@@ -958,7 +958,7 @@ textToSpeech          | Current Text to Speech state
 ### Operation: Setting system settings
 *Operation model: Request / Response*
 
-This operation is used to update a discreet settings on the device. It is understood that changing some settings (like language) may take a substantial amount of time — it is still expected that the operation only return after a setting change has completely taken affect. DAB clients will have an extended timeout value when requesting changes to settings that are known to have extended processing times.
+This operation is used to update a discreet settings on the device. This operation updates device settings. Some changes, such as language adjustments, may require significant time to complete. The operation should only return once the setting change has fully taken effect. For settings with longer processing times, DAB clients will use an extended timeout value when making these requests.
 
 #### Request Topic
 
