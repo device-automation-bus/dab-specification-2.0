@@ -1,6 +1,6 @@
 
 # Device Automation Bus (DAB)
-Version: 2.0  |  Last Updated: 2024-04-23
+Version: 2.0  |  Last Updated: 2024-12-04
 
 # Table of Contents:
 1. [Introduction](#1-introduction)
@@ -958,7 +958,7 @@ textToSpeech          | Current Text to Speech state
 ### Operation: Setting system settings
 *Operation model: Request / Response*
 
-This operation is used to update a discreet settings on the device.
+This operation is used to update a discreet settings on the device. This operation updates device settings. Some changes, such as language adjustments, may require significant time to complete. The operation should only return once the setting change has fully taken effect. For settings with longer processing times, DAB clients will use an extended timeout value when making these requests.
 
 #### Request Topic
 
