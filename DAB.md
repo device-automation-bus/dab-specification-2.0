@@ -172,9 +172,11 @@ error | optional explanation of the error
 Status code | Description
 --- | ---
 200 | The request was successful.
-4XX | Bad request from the client side. The request was invalid or malformed. The explanation of the error must be included in the `error` field of the response.
+4XX | Appropriate client side errors. The request was invalid or malformed. The explanation of the error must be included in the `error` field of the response.
 500 | Internal error. The explanation of the error must be included in the `error` field of the response.
 501 | Not implemented. The device must return this error when the requested functionality is not implemented.
+505 | Not supported. This error must be returned when the implementation decides that the device / environment cannot support this operation.
+5XX | Appropriate implementation side errors. The implementation must add an reasoning to the `error` field in the response.
 
 An operation must respond with one of the above common status codes, unless the operation states otherwise.
 
