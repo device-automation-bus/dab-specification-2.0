@@ -600,7 +600,7 @@ enum NetworkInterfaceType {
    Other = "Other",
 }
 
-enum displayType {
+enum DisplayType {
    // Device has native display capability
    Native = "Native",
    // Device cannot display natively and needs an external display connected
@@ -705,8 +705,8 @@ type ListSupportedSystemSettingsRequest = DabRequest
 
 ```typescript
 interface OutputResolution {
-   width: int;
-   height: int;
+   width: number;
+   height: number;
    frequency: number;
 }
 
@@ -809,8 +809,8 @@ interface ListSupportedSystemSettingsResponse extends DabResponse {
    audioOutputSource: AudioOutputSource [];
    videoInputSource: VideoInputSource [];
    audioVolume: {
-      min: int;
-      max: int;
+      min: number;
+      max: number;
    },
    mute: boolean;
    textToSpeech: boolean;
@@ -904,7 +904,7 @@ interface GetCurrentSystemSettingsResponse extends DabResponse {
    audioOutputMode: AudioOutputMode;
    audioOutputSource: AudioOutputSource;
    videoInputSource: VideoInputSource;
-   audioVolume: int;
+   audioVolume: number;
    mute: boolean;
    textToSpeech: boolean;
 }
@@ -945,10 +945,10 @@ textToSpeech          | Current Text to Speech state
    "lowLatencyMode": true,
    "matchContentFrameRate": "EnabledSeamlessOnly",
    "hdrOutputMode": "AlwaysHdr",
-   "pictureMode": "Other",
+   "pictureMode": "Standard",
    "audioOutputMode": "Auto",
    "audioOutputSource": "HDMI",
-   "videoInputSource": "Other",
+   "videoInputSource": "HDMI1",
    "audioVolume": 20,
    "mute": false,
    "textToSpeech": true
@@ -958,7 +958,7 @@ textToSpeech          | Current Text to Speech state
 ### Operation: Setting system settings
 *Operation model: Request / Response*
 
-This operation is used to update a discreet settings on the device. This operation updates device settings. Some changes, such as language adjustments, may require significant time to complete. The operation should only return once the setting change has fully taken effect. For settings with longer processing times, DAB clients will use an extended timeout value when making these requests.
+This operation is used to update a discrete settings on the device. This operation updates device settings. Some changes, such as language adjustments, may require significant time to complete. The operation should only return once the setting change has fully taken effect. For settings with longer processing times, DAB clients will use an extended timeout value when making these requests.
 
 #### Request Topic
 
@@ -1179,7 +1179,7 @@ This operation mimics the action of pressing a key for a specified duration.
 ```typescript
 interface SendLongKeyPressRequest extends DabRequest {
    keyCode: string;
-   durationMs: int;
+   durationMs: number;
 }
 ```
 
