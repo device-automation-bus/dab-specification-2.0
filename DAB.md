@@ -42,8 +42,13 @@ Protocol Compliance testing will be defined in a separate DAB certification guid
 # 3. Requirements
 
 An endpoint is DAB compliant only if the following conditions are met:
-- [HTTP/1.1](https://datatracker.ietf.org/doc/html/rfc7230) or above is supported for media operations
-- 2 megabytes are dedicated to DAB for media operations
+- 3.1 [HTTP/1.1](https://datatracker.ietf.org/doc/html/rfc7230) or above is supported for media operations
+- 3.2 The DAB implementation MUST either be:
+   - 3.2.1 Natively supported in your device firmware, or...
+   - 3.2.2 Supported using software that translates the DAB protocol into a protocol native to the device platform (aka Bridge implementation).
+- 3.4 Native DAB implementations MUST use the default TCP/IP port 1883 to allow for uniform MQTT connection semantics across different OTT app test infrastructures.
+- 3.5 Regardless of whether the implementation is Native or Bridge, operations MUST be completed within 200ms. Exceptions to this requirement are documented in the forward-looking [2.1 preview specification here](https://github.com/device-automation-bus/dab-specification-2.1-preview)
+- 3.6 DAB operations related to Application State management (e.g. app start, app stop, app state) MUST only provide the `200` response after the reuqested operation is completed.
 
 # 4. Protocol Basics
 This section describes message payloads, request and response formats, message types and common status codes.
