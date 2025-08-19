@@ -1129,6 +1129,9 @@ This operation sends a key press to the device. Key press is an action that can 
 
 `dab/<device-id>/input/key-press`
 
+#### Operation Latency
+The operation MUST be completed within 2000 milliseconds.
+
 #### Request Format
 
 ```typescript
