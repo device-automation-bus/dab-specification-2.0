@@ -884,6 +884,10 @@ This operation is used to retrieve the current settings on the device.
 
 `dab/<device-id>/system/settings/get`
 
+#### Operation Latency
+
+The operation MUST be completed within 750 milliseconds.
+
 #### Request Format
 
 ```typescript
